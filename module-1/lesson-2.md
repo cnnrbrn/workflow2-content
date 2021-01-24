@@ -1,335 +1,198 @@
-# Variables - strings, numbers and booleans
+# Lesson 2
 
-Variables are how a programming language stores information in a computer's memory. We can think of them as containers for data and once stored there, we can act on and use this data in other parts of our program.
+## Converting JavaScript code to TypeScript
 
-#####  Variables sitting in the computer's RAM - Random Access Memory
+To get started with TypeScript, try convert a small file or project from regular JavaScript.
 
-<img src="/images/variable-containers.png" alt="variable containers" style="max-width: 379px; margin-top: -10px" />
+The video below goes through the process of converting a simple, single-file JavaScript project to TypeScript.
 
-We are going to look at these types of data that JavaScript variables can store:
+<iframe src="https://player.vimeo.com/video/504018813" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
--   `undefined`
--   `string`
--   `number`
--   `boolean`
+<a href="https://vimeo.com/504018813/6f408b23db" target="_blank">Watch on Vimeo</a>
 
-## Declaring variables
-
-Before we can use variables, we need to`declare` (create) them.
-
-Variables are declared with the `var` keyword. (We will use the `const` and `let` variables to declare variables in a later course.)
-
-```js
-var pet;
-```
-
-Above we've created a variable called `pet`. We haven't given `pet` a value, so it is empty or `undefined`. If you console log `pet` it will return a value of `undefined`. 
-
-Giving a variable a value when you declare it is called `initialising` the variable.
+<a href="https://github.com/NoroffFEU/converting-javascript-code-to-typescript" target="_blank">Code from the video</a>
 
 ---
 
-The video below is an introduction to variables.
+## Interfaces
 
-<iframe src="https://player.vimeo.com/video/489815427" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+We can use interfaces to type objects, to make sure object values match the properties defined in the interface. This way we can check the objects have the properties and values the code we are passing them to require.
 
-<a href="https://vimeo.com/489815427/af5a3f023c" target="_blank">Watch on Vimeo</a>
+Say we have a function that accepts one argument, an object, that makes decisions based on the values of the properties of that object:
+
+```ts
+function generateMessage(message) {
+	switch (message.severity) {
+		case "ERROR":
+			return `This is SERIOUS: ${message.content}`;
+		case "WARNING":
+			return `This is KIND OF SERIOUS: ${message.content}`;
+		default:
+			return "We're not sure what's going on.";
+	}
+}
+```
+
+To make our code more robust, and check for any missing properties in the message argument at design time, we can create an interface with the properties we require.
+
+We need two properties, both of type string:
+
+```ts
+interface Message {
+	severity: string;
+	content: string;
+}
+```
+
+We would then type our message argument with the Message interface:
+
+```ts
+function generateMessage(message: Message) {
+	//...
+}
+```
+
+We would then need to pass an object with a shape matching the interface otherwise we would receive a warning.
+
+```ts
+generateMessage({ severity: "ERROR", content: "Bad things happened" });
+```
+
+This way we would be sure the function receives an object with both a `severity` and `content` property of type string.
 
 ---
 
-## `undefined` vs the `is not defined` error
+## Enums
 
-This video looks at the difference between the (valid) value `undefined` and the error `is not defined`.
+Enums are sets of constants. A primary use case for them is to provide a limited set of options.
 
-<iframe src="https://player.vimeo.com/video/489861232" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+### Numeric enums
 
-<a href="https://vimeo.com/489861232/a680be6f3c" target="_blank">Watch on Vimeo</a>
-
----
-
-## Strings
-
-Strings are pieces of text. They can range in size from one character like `a` to a whole book of characters.
-
-They're enclosed in either single `'` or double `"` quotes. At Noroff we use double quotes for our string variables.
-
-Let's create our first string variable.
-
-Variable names must start with a lower case letter (`a` to `z`), an upper case letter (`A` to `Z`), a dollar sign `$` or underscore `_`. We are only going to use lowercase letters to begin our variable names.
-
- To declare a variable we use `var`, a name of our choice and a value if we are initialising it.
-
-```js
-var pet = "dog";
+```ts
+enum Response {
+	Outraged,
+	Bemused,
+	Angry,
+}
 ```
 
-We've initialised the variable `pet` with the string value "dog". We can say we've `assigned` the value "dog" to `pet`, and now `pet` contains the value "dog".
+Above is a number enum with 3 members, with the first member having a value of `0`.
 
-We can now use that variable in our code:
-
-```js
-console.log(pet);
-```
-
-We use `camelCase` to name variables.
-
-Using this method, the first word of a variable name starts with a lower case letter and subsequent words are joined to the first and begin with an upper case letter:
-
-```js
-var loggedIn;
-var orderHasShipped;
-var lastName;
-```
-
-Variables names cannot include spaces.
-
----
-
-### Joining strings together
-
-We can join strings together using the `+` sign. This is called `concatenation`.
-
-```js
-var letters = "a" + "b";
-
-console.log(letters);
- // "ab"
-```
-
-Let's assign those string values to variables and then join them:
-
-```js
-var letter1 = "a";
-var letter2 = "b";
-
-var letters = letter1 + letter2;
-
-console.log(letters);
- // "ab"
-```
-
----
-
-Anything inside quotes is a string, even numbers. The variable `amount` below has a string value.
-
-```js
-var amount = "7";
-```
-
-In this video we take a look at `string` variables.
-
-<iframe src="https://player.vimeo.com/video/489970889" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-<a href="https://vimeo.com/489970889/1b27bd47e0" target="_blank">Watch on Vimeo</a>
-
----
-
-## Selecting HTML elements with JavaScript
-
-Before we look at adding string variables to an HTML page, we need to look at how we can select and modify HTML elements using JavaScript's `document.querySelector` function.
-
-<iframe src="https://player.vimeo.com/video/490143019" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-<a href="https://vimeo.com/490143019/c5399cdcb3" target="_blank">Watch on Vimeo</a>
-
----
-
-## Adding string variables to an HTML page
-
-In this video we will add string variables to HTML elements.
-
-<iframe src="https://player.vimeo.com/video/490167805" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-<a href="https://vimeo.com/490167805/317016af51" target="_blank">Watch on Vimeo</a>
-
-<a href="https://github.com/NoroffFEU/adding-string-variables-to-html" target="_blank">Code from the video</a>
-
----
-
-## Numbers
-
-Numbers in JavaScript can be both integers (whole numbers) and decimals.
-
-```js
-var integer = 8;
-var decimal = 7.1;
-```
-
-### Basic arithmetic operators
-
-We can use the following operators with numbers in JavaScript.
-
-<table>
-    <thead>
-        <th>Operator</th>
-        <th style="text-align: center">Name</th>
-        <th>Example</th>
-    </thead>
-    <tr>
-        <td>+</td>
-        <td>addition</td>
-        <td>3 + 2</td>
-    </tr>
-    <tr>
-        <td>-</td>
-        <td>subtraction</td>
-        <td>7 - 1</td>
-    </tr>
-    <tr>
-        <td>*</td>
-        <td>multiplication</td>
-        <td>6 * 4</td>
-    </tr>
-    <tr>
-        <td>/</td>
-        <td>division</td>
-        <td>9 / 3</td>
-    </tr>
-    <tr>
-        <td>%</td>
-        <td>remainder</td>
-        <td>5 % 2</td>
-    </tr>
-</table>
-
-If you try to add a number value to a string version of a number like this:
-
-```js
-7 + "7"
-```
-
-you will end up with `77` not `14`.
-
-This is because when one of the values is a string value, the `+` operator joins both values together as if they were both strings. It doesn't add them together as it would if all values were number values.
-
-You can convert a string version of a number to a proper number using the `parseInt` and `parseFloat` functions.
-
-To convert a number without a decimal point use parseInt.
-
-```js
-var integer = "7";
-var convertedInteger = parseInt(wholeNumber);
-// 7
-```
-
-To convert a number with a decimal point use parseFloat.
-
-```js
-var decimalNumber = "7.9";
-var convertedDecimalNumber = parseFloat(wholeNumber);
-// 7
-```
-
----
-
-The remainder operator (sometimes called the modulus operator) returns the remainder of a division operation:
-
-```js
-var remainder = 5 % 2;
-console.log(remainder);
-// 1
-
-var remainder2 = 4 % 2;
-console.log(remainder2);
+```ts
+console.log(Response.Outraged);
 // 0
+console.log(Response.Bemused);
+// 1
 ```
 
-This video looks at `number` variables.
+If we wanted to begin the values with a different number we could initialise the first member with a value:
 
-<iframe src="https://player.vimeo.com/video/490212936" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+```ts
+enum Response {
+	Outraged = 1,
+	Bemused,
+	Angry,
+}
+```
 
-<a href="https://vimeo.com/490212936/d103dd7e13" target="_blank">Watch on Vimeo</a>
+```ts
+console.log(Response.Outraged);
+// 1
+console.log(Response.Bemused);
+// 2
+```
 
-<a href="https://github.com/NoroffFEU/number-variables" target="_blank">Code from the video</a>
+### String enums
 
-<!-- ###### Create a variable called `multiply` and initialise it with a value of 7 times 3
-~~parser js numbers multiplyNumbers~~ -->
+Here is an example of an enum whose members have string values. It is common for the string values to be uppercase values.
 
+```ts
+enum MessageType {
+	Error = "ERROR",
+	Warning = "WARNING",
+	Success = "SUCCESS",
+}
+```
 
-## Booleans
+```ts
+console.log(MessageType.Warning);
+// WARNING
+```
 
-Boolean values are either `true` or `false`.
+We can impove our code above by changing our interface's `severity` property to be of type `MessageType` and instead of using string as the value, which is prone to errors, we'll use a constant from the enum.
 
-```js
-var isLoggedIn = true;
-var onSpecial = false;
+```ts
+enum MessageType {
+	Error = "ERROR",
+	Warning = "WARNING",
+	Success = "SUCCESS",
+}
+
+interface Message {
+	severity: MessageType;
+	content: string;
+}
+
+function decideThings(message: Message) {
+	switch (message.severity) {
+		case MessageType.Error:
+			return `This is SERIOUS: ${message.content}`;
+		case MessageType.Error:
+			return `This is KIND OF SERIOUS: ${message.content}`;
+		default:
+			return "We're not sure what's going on.";
+	}
+}
+
+decideThings({ severity: MessageType.Error, content: "Bad things happened" });
 ```
 
 ---
 
-Note that ***there are no quotes around boolean values***.
+This video uses an interface and an enum to improve our code from the first video above.
 
-The variable `badBoolean` below has a `string` value, so it's not a boolean.
-```js
-var badBoolean = "true";
-```
+<iframe src="https://player.vimeo.com/video/504045256" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-The variable `properBoolean` below has a boolean value.
-```js
-var properBoolean = true;
-```
+<a href="https://vimeo.com/504045256/f601dfb4aa" target="_blank">Watch on Vimeo</a>
+
+<a href="https://github.com/NoroffFEU/converting-javascript-code-to-typescript/tree/interface-and-enum" target="_blank">Code from the video</a>
 
 ---
 
-<!-- ###### Create a variable called `lightIsOn` and initialise it with a value of false
-~~parser js booleans firstBoolean~~
+### Compiling to a different version of ECMAScript
 
-We can produce boolean variables using `comparison operators`, which we'll look at in the next lesson. -->
+ECMAScript is the standard for JavaScript, it's aim is to ensure browsers' implementations of JavaScript are the same.
 
-<a id="typeof"></a>
-## Checking data types
+If you hear the term ES6 it refers to ECMAScript 6, which is the version that came out in 2015, and is also known as ES2015.
 
-We can use the `typeof` operator to check what type of data a variable holds. We can use it with or without brackets.
+You can see what features were added to the language on <a href="https://en.wikipedia.org/wiki/ECMAScript" target="_blank">this page</a>.
 
-```js
+We can change the version of ECMAScript that our TypeScript is compiled to using the target setting in the `tsconfig.json` file:
 
-var colour = "red";
-
-typeof(colour);
-// "string"
-
-typeof("blue");
-// "string"
-
-typeof 14;
-// "number"
-
-typeof false;
-// "boolean"
-
+```json
+{
+	"compilerOptions": {
+		"target": "es6"
+	}
+}
 ```
 
-We can assign the result of a `typeof` operation to a variable.
+<iframe src="https://player.vimeo.com/video/504064281" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-```js
-var animal = "elephant";
-var typeOfAnimal = typeof(animal);
-console.log(typeOfAnimal);
-// string
-```
-
-
-The video below is an introduction to the `typeof` operator.
-
-<iframe src="https://player.vimeo.com/video/489917338" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-<a href="https://vimeo.com/489917338/d464da8262" target="_blank">Watch on Vimeo</a>
-
-<a href="https://github.com/NoroffFEU/typeof-operator" target="_blank">Code from the video</a>
-
-<!-- ###### Write code that checks the type of the value: 23
-~~parser js variables typeofNumber~~ -->
+<a href="https://vimeo.com/504064281/269d156bfd" target="_blank">Watch on Vimeo</a>
 
 ---
 
-## Lesson Task
+<!-- ## Lesson Task
 
 There are practice questions in the master branch of <a href="https://github.com/NoroffFEU/lesson-task-pf-module1-lesson2" target="_blank">this repo</a>.
 
 There are example answers in the <a href="https://github.com/NoroffFEU/lesson-task-pf-module1-lesson2/tree/answers" target="_blank">answers branch</a>.
 
-Try the exercises before checking the solutions.
+Try the exercises before checking the solutions. -->
 
 ---
-- [Go to lesson 3](3) 
+
+-   [Go to lesson 3](3)
+
 ---

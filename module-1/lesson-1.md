@@ -103,6 +103,14 @@ Once you've created and configured a `tsconfig.json` file in your project folder
 
 ---
 
+## tsconfig.json
+
+`tsonfig.json` holds the configuration for compiling our TypeScript code.
+
+You can view all the (many) options <a href="https://www.typescriptlang.org/tsconfig" target="_blank">here</a>.
+
+---
+
 ## Types
 
 When we declare a variable with a type using a colon `:` that variable can only hold values of that type.
@@ -203,6 +211,20 @@ The same as found in regular JavaScript.
 const var1: undefined = undefined;
 const var2: null = null;
 ```
+
+---
+
+### Any
+
+We can turn off type checking by typing a variable as `any`.
+
+```ts
+let anyVar: any;
+```
+
+`anyVar` will accept any type.
+
+When starting with TypeScript or converting a JavaScript project, it's often convenient to temporarily type a variable as any.
 
 ---
 
