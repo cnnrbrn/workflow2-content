@@ -226,6 +226,14 @@ let anyVar: any;
 
 When starting with TypeScript or converting a JavaScript project, it's often convenient to temporarily type a variable as any.
 
+## Lesson Task
+
+There are practice questions in the master branch of <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module1-lesson1" target="_blank">this repo</a>.
+
+There are example answers in the <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module1-lesson1/tree/answers" target="_blank">answers branch</a>.
+
+Try the exercises before checking the solutions.
+
 ---
 
 [Go to lesson 2](2)
