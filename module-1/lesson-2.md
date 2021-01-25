@@ -206,16 +206,6 @@ We can change the version of ECMAScript that our TypeScript is compiled to using
 
 ---
 
-<!-- ## Lesson Task
+[Go to lesson 3](3)
 
-There are practice questions in the master branch of <a href="https://github.com/NoroffFEU/lesson-task-pf-module1-lesson2" target="_blank">this repo</a>.
-
-There are example answers in the <a href="https://github.com/NoroffFEU/lesson-task-pf-module1-lesson2/tree/answers" target="_blank">answers branch</a>.
-
-Try the exercises before checking the solutions. -->
-
-<!-- ---
-
--   [Go to lesson 3](3)
-
---- -->
+---
