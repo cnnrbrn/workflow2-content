@@ -1,4 +1,4 @@
-# Lesson 1
+# Lesson 1 - Introduction, configuration and basic types
 
 ## Introduction
 

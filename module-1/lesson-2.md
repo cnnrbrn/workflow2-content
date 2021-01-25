@@ -1,4 +1,4 @@
-# Lesson 2
+# Lesson 2 - Converting JavaScript code to TypeScript, interfaces and enums
 
 ## Converting JavaScript code to TypeScript
 

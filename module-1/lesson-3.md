@@ -1,4 +1,4 @@
-# Lesson 3
+# Lesson 3 - Function return types, void, type aliases and classes
 
 ## Function return types
 
