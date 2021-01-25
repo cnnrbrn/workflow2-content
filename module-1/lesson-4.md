@@ -30,16 +30,22 @@ We should add prop type checks to our components to check that the values being 
 
 ## Creating a React app with TypeScript support
 
-<!-- ## Lesson Task
+We can use the command found <a href="https://create-react-app.dev/docs/getting-started/#creating-a-typescript-app" target="_blank">here</a> to create a React app with TypeScript support.
 
-There are practice questions in the master branch of <a href="https://github.com/NoroffFEU/lesson-task-pf-module1-lesson4" target="_blank">this repo</a>.
+```bash
+npx create-react-app my-app --template typescript
+```
 
-There are example answers in the <a href="https://github.com/NoroffFEU/lesson-task-pf-module1-lesson4/tree/answers" target="_blank">answers branch</a>.
+This video looks at creating a React app with TypeScript and how to check the prop types using an interface or type.
 
-Try the exercises before checking the solutions. -->
+<iframe src="https://player.vimeo.com/video/504454748" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-<!-- ---
+<a href="https://vimeo.com/504454748/f4df8a2bdf" target="_blank">Watch on Vimeo</a>
+
+<!-- <a href="https://github.com/NoroffFEU/react-props" target="_blank">Code from the video</a> -->
+
+---
 
 [Go to the module assignment](ma)
 
---- -->
+---
