@@ -62,6 +62,29 @@ This way we would be sure the function receives an object with both a `severity`
 
 ---
 
+### Optional interface properties
+
+To make an interface property optional we can place a `?` after its name:
+
+```ts
+interface ErrorMessage {
+	warning: string;
+	icon?: string;
+}
+```
+
+The `icon` property is optional and we can pass a value to a ErrorMessage variable that doesn't contain an icon property:
+
+```ts
+function logError(error: ErrorMessage) {
+	console.log(error.warning);
+}
+
+logError({ warning: "Damn" });
+```
+
+---
+
 ## Enums
 
 Enums are sets of constants. A primary use case for them is to provide a limited set of options.
@@ -76,7 +99,7 @@ enum Response {
 }
 ```
 
-Above is a number enum with 3 members, with the first member having a value of `0`.
+Above is a number enum with 3 `members`, with the first member having a value of `0`.
 
 ```ts
 console.log(Response.Outraged);

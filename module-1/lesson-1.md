@@ -203,6 +203,20 @@ tuple = ["hello", 32];
 
 ---
 
+### Union
+
+A union type can be more than one type, the pipe or vertical bar `|` being used to separate each type.
+
+The parameter in this function can receive either a boolean or number value:
+
+```ts
+function DoThings(thing: boolean | number) {
+	console.log(typeof thing);
+}
+```
+
+---
+
 ### Null and undefined
 
 The same as found in regular JavaScript.
