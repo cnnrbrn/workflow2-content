@@ -36,7 +36,7 @@ We can use the command found <a href="https://create-react-app.dev/docs/getting-
 npx create-react-app my-app --template typescript
 ```
 
-This video looks at creating a React app with TypeScript and how to check the prop types using an interface or type.
+This video looks at creating a React app with TypeScript and how to check the prop types using an interface or type alias.
 
 <iframe src="https://player.vimeo.com/video/504454748" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
