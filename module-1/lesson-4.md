@@ -1,4 +1,4 @@
-# Lesson 4
+# Lesson 4 - Using TypeScript with React
 
 In this lesson we're going to look at using TypeScript on a React project.
 
