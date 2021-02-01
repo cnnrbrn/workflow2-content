@@ -23,3 +23,11 @@ npm run test
 <a href="https://github.com/NoroffFEU/introduction-to-testing-in-React" target="_blank">Code from the video</a>
 
 ---
+
+## Test file names and locations
+
+Test files need to have `.test.js` or `.spec.js` file extension, or be located in a `__tests__` folder - that's two underscores on each side.
+
+If located in a `__tests__` folder the file extension only needs to be `.js`.
+
+---
