@@ -36,8 +36,8 @@ If we wanted to test for an object value we would use the `toEqual` matcher.
 
 Consult the <a href="https://jestjs.io/docs/en/using-matchers" target="_blank">official docs</a> when writing your tests to find an appropriate matcher.
 
-<!-- ---
+---
 
 [Go to lesson 3](3)
 
---- -->
+---
