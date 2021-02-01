@@ -11,3 +11,9 @@ They are configured to run on certain branches of a repo, and different actions 
 <a href="https://vimeo.com/506995445/37e0ac8969" target="_blank">Watch on Vimeo</a>
 
 <a href="https://github.com/NoroffFEU/introduction-to-github-actions" target="_blank">Code from the video</a>
+
+---
+
+[Go to the MA](ma)
+
+---

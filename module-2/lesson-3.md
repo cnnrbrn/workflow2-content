@@ -31,3 +31,7 @@ Test files need to have `.test.js` or `.spec.js` file extension, or be located i
 If located in a `__tests__` folder the file extension only needs to be `.js`.
 
 ---
+
+[Go to lesson 4](4)
+
+---
