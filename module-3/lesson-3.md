@@ -10,6 +10,16 @@ Pull requests are a way for code to be reviewed before getting merged into a maj
 
 Using Github actions we will automate the running of our tests - in our case just one test. You wouldn't merge a pull request that had failing tests into a major branch.
 
+---
+
+The repo from the lesson is <a href="https://github.com/NoroffFEU/github-actions-tests" target="_blank">here</a>.
+
+---
+
+We are going to use the command line for most of the git operations (except creating and merging the pull request), but it doesn't matter if you use the command line, Github Desktop or VSCode's git tools.
+
+---
+
 ### Steps
 
 1. Create a new React app with Create React App, create a repo for the app, link the app to the repo with the default branch set to `main` and push the local code to Github.
