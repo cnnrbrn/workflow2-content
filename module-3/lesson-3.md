@@ -67,7 +67,7 @@ We'll change the branch that will respond to pushes and pull-requests to `dev` a
 
 These steps will checkout the repo code, install the modules and run the tests.
 
-<img src="/images/actions-test-1.gif" alt="Create the workflow" style="max-width: 700px">
+<img src="/images/actions-test-1.gif" alt="Create the workflow" style="max-width: 800px">
 
 We created the workflow file in Github, so we need to pull it in to our local version of the repo:
 
@@ -75,7 +75,7 @@ We created the workflow file in Github, so we need to pull it in to our local ve
 git pull origin main
 ```
 
-<img src="/images/actions-test-2.gif" alt="Pull origin" style="max-width: 700px">
+<img src="/images/actions-test-2.gif" alt="Pull origin" style="max-width: 800px">
 
 <!-- [Go to lesson 4](4) -->
 
@@ -91,7 +91,7 @@ git checkout -b dev
 
 VSCode will indicate you're now on the dev branch in the bottom left.
 
-<img src="/images/actions-test-3.gif" alt="Create dev branch" style="max-width: 700px">
+<img src="/images/actions-test-3.gif" alt="Create dev branch" style="max-width: 800px">
 
 The test found in `App.test.js` looks for the text `learn react`. Remove the word `learn` from the `App.js` file so the test will fail, then commit and push the changes.
 
@@ -101,13 +101,13 @@ git commit -m "Change App.js"
 git push origin dev
 ```
 
-<img src="/images/actions-test-4.gif" alt="Push to dev" style="max-width: 700px">
+<img src="/images/actions-test-4.gif" alt="Push to dev" style="max-width: 800px">
 
 Go to the Actions tab in Github to see the action first install the packages, then run the tests.
 
 The test will fail.
 
-<img src="/images/actions-test-5.png" alt="Failed test" style="max-width: 700px">
+<img src="/images/actions-test-5.png" alt="Failed test" style="max-width: 800px">
 
 #### Step 4
 
@@ -135,16 +135,16 @@ To create the pull request and do the following:
 -   Add a comment for the pull request
 -   Click `Create pull request`
 
-<img src="/images/actions-test-6.gif" alt="Create pull request" style="max-width: 700px">
+<img src="/images/actions-test-6.gif" alt="Create pull request" style="max-width: 800px">
 
 Because our workflow is set to respond to pull requests on the dev branch, the action will run and the test will run.
 
 This time our test will pass.
 
-<img src="/images/actions-test-7.png" alt="Passed test" style="max-width: 700px">
+<img src="/images/actions-test-7.png" alt="Passed test" style="max-width: 800px">
 
 #### Step 5
 
 The final thing to do is merge the pull request.
 
-<img src="/images/actions-test-8.gif" alt="Merge the pull request" style="max-width: 700px">
+<img src="/images/actions-test-8.gif" alt="Merge the pull request" style="max-width: 800px">
