@@ -131,7 +131,7 @@ To create the pull request do the following:
 
 -   Change to the test-fix branch
 -   Select the `pull-request` link
--   Change the destinantion brange for the merge from `main` to `dev`
+-   Change the destination brange for the merge from `main` to `dev`
 -   Add a comment for the pull request
 -   Click `Create pull request`
 
