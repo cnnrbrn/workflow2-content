@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lesson we are going to look at an example CI (Continous Ingegration) flow.
+In this lesson we are going to look at an example CI (Continous Integration) flow.
 
 In our project we'll have a `main` and a `dev` branch. We'll create a pull request that will fix a broken test in the dev branch.
 
