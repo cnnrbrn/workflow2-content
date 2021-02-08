@@ -1,172 +1,140 @@
 # Lesson 3
 
-### Running the code examples
+## Introduction
 
-\*Note: Use a bundler like Parcel to run the examples, e.g. `parcel index.html`
+In this lesson we are going to look at an example CI (Continous Ingegration) flow.
 
-To use `async/await` with Parcel, add the following entry in package.json:
+In our project we'll have a `main` and a `dev` branch. We'll create a pull request that will fix a broken test in the dev branch.
 
-```json
-"browserslist": [
-    "last 1 Chrome version"
-]
-```
+Pull requests are a way for code to be reviewed before getting merged into a major branch of a repo.
 
-<img src="/images/axios-1.png" alt="Using async/await with Parcel" style="max-width: 700px">
+Using Github actions we will automate the running of our tests - in our case just one test. You wouldn't merge a pull request that had failing tests into a major branch.
 
-## Axios
+### Steps
 
-<a href="https://github.com/axios/axios" target="_blank">Axios</a> is a popular http client, similar to JavaScript's built-in `fetch`.
+1. Create a new React app with Create React App, create a repo for the app, link the app to the repo with the default branch set to `main` and push the local code to Github.
+2. Using Github's website, create a workflow that will install the packages and run the tests in the project on any push or pull request to the dev branch. We'll use the test in `App.test.js` as the only test. We'll need to pull the workflow file to our local version.
+3. Create a new branch called `dev`. Change the contents of `App.js` so that the test will fail when it's run. Push the dev branch branch and see the test fail when run by the action
+4. Create a new branch off dev called `test-fix` and fix the `App.js` so that the test will pass. Push this branch to Github and create a pull request.
+5. Merge the pull request - this will merge the test-fix branch into dev branch.
 
-```
-npm init -y
-npm install axios
-```
+#### Step 1
 
-An API call made with `fetch` like this
-
-```js
-// url used for both examples
-const url = "https://jsonplaceholder.typicode.com/posts/1";
-
-// using fetch
-async function callApiWithFetch() {
-	// GET is the default method for fetch
-	const response = await fetch(url);
-	const json = await response.json();
-	console.log(json);
-}
-
-callApiWithFetch();
-```
-
-Would be written like this using axios:
-
-```js
-import axios from "axios";
-
-// using axios
-async function callApiWithAxios() {
-	const response = await axios.get(url);
-	console.log(response.data);
-}
-callApiWithAxios();
-```
-
-Axios performs automatic transforms of JSON data, whereas fetch is a two-step process: first you request the data, then you transform it to JSON.
-
-If you are not going to use Axios-specific features (some of which are listed below) it is maybe not worth loading an extra library to write code that could be handled with fetch.
-
-Some features of Axios not found in fetch:
-
--   allows cancelling requests
--   built-in support for download progress
--   wider browser support, including Internet Explorer
--   ability to intercept HTTP requests
-
----
-
-There are POST, PUT and DELETE examples in the answers branch of the lesson task.
-
----
-
-### Lodash
-
-<a href="https://lodash.com/">Lodash</a> is a JavaScript utility library that provides many useful methods to help simpliy your code, with the pay-off being you are loading an extra library into your code with a resultant increase in your code size.
-
-We could load it directly from a CDN (Content Delivery Network) by using the latest version from <a href="https://www.jsdelivr.com/package/npm/lodash" target="_blank">here</a>:
-
-```html
-<script src="link/to/latest/version"></script>
-```
-
-Or you can install it via NPM:
+We'll create a new React app with the following command:
 
 ```
-npm install lodash
+npx create-react-app github-actions-tests
 ```
 
-You can import all of lodash so that you can use any method like this:
+We'll create a new repo in Github called `github-actions-tests`, and link our new app to the repo after change the default branch to main.
 
-```js
-import _ from "lodash";
+You can find similar instructions on Github when createing a new repo. Make you are in the correct folder when running the commands - the easiest way to do that is to run the commands from a VSCode terminal
+
+```
+cd github-actions-tests
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/NoroffFEU/github-actions-tests-.git
+git push -u origin main
 ```
 
-For a smaller bundle size import only the methods you are going to use:
+#### Step 2
 
-```js
-import
+After pushing the files to Github, we'll go to the actions tab and create a workflow file.
+
+We'll change the branch that will respond to pushes and pull-requests to `dev` and change the steps to:
+
+```yml
+- uses: actions/checkout@v2
+
+- name: Install modules
+  run: npm install
+- name: Run tests
+  run: npm run test
 ```
 
-You can find details of all Lodash methods in <a href="https://lodash.com/docs">the documentation</a>.
+These steps will checkout the repo code, install the modules and run the tests.
 
-We'll take a look at two useful methods below.
+<img src="/images/actions-test-1.gif" alt="Create the workflow" style="max-width: 700px">
 
-### orderBy
+We created the workflow file in Github, so we need to pull it in to our local version of the repo:
 
-This method will sort a collection (an array or a collection) in either ascending (the default) or descending order.
-
-```js
-import { orderBy } from "lodash";
-
-const products = [
-	{
-		name: "Product A",
-		price: 15.99,
-	},
-	{
-		name: "Product B",
-		price: 8,
-	},
-	{
-		name: "Product C",
-		price: 10.5,
-	},
-	{
-		name: "Product D",
-		price: 4.95,
-	},
-];
-
-const orderedProducts = orderBy(products, ["price"], ["asc"]);
-
-console.log(orderedProducts);
+```
+git pull origin main
 ```
 
----
-
-### isEqual
-
-We can use this method to compare objects.
-
-```js
-const product1 = {
-	name: "Product",
-	price: 5,
-};
-
-const product2 = {
-	name: "Product",
-	price: 5,
-};
-```
-
-We can't simply use the comparison operator to check if the object values are the same like we can with primitive values like strings or numbers.
-
-```js
-console.log(product1 === product2);
-// false
-```
-
-If we use the `isEqual` method we will get the results we expect:
-
-```js
-console.log(isEqual(product1, product2));
-// true
-```
-
-<!-- ### debounce -->
+<img src="/images/actions-test-2.gif" alt="Pull origin" style="max-width: 700px">
 
 <!-- [Go to lesson 4](4) -->
 
 ---
+
+#### Step 3
+
+We'll create and checkout a new branch called `dev` with the following command:
+
+```
+git checkout -b dev
+```
+
+VSCode will indicate you're now on the dev branch in the bottom left.
+
+<img src="/images/actions-test-3.gif" alt="Create dev branch" style="max-width: 700px">
+
+The test found in `App.test.js` looks for the text `learn react`. Remove the word `learn` from the `App.js` file so the test will fail, then commit and push the changes.
+
+```
+git add .
+git commit -m "Change App.js"
+git push origin dev
+```
+
+<img src="/images/actions-test-4.gif" alt="Push to dev" style="max-width: 700px">
+
+Go to the Actions tab in Github to see the action first install the packages, then run the tests.
+
+The test will fail.
+
+<img src="/images/actions-test-5.png" alt="Failed test" style="max-width: 700px">
+
+#### Step 4
+
+Now we're going to create a pull request with a fix for `App.js` that will make the test pass.
+
+To create a pull request we first need a branch. We'll call the branch `test-fix`.
+
+```
+git checkout -b test-fix
+```
+
+We'll add the word "Learn" back to `App.js` then commit and push the branch:
+
+```
+git add .
+git commit -m "Fix App.js"
+git push origin test-fix
+```
+
+To create the pull request and do the following:
+
+-   Change to the test-fix branch
+-   Select the `pull-request` link
+-   Change the destinantion brange for the merge from `main` to `dev`
+-   Add a comment for the pull request
+-   Click `Create pull request`
+
+<img src="/images/actions-test-6.gif" alt="Create pull request" style="max-width: 700px">
+
+Because our workflow is set to respond to pull requests on the dev branch, the action will run and the test will run.
+
+This time our test will pass.
+
+<img src="/images/actions-test-7.png" alt="Passed test" style="max-width: 700px">
+
+#### Step 5
+
+The final thing to do is merge the pull request.
+
+<img src="/images/actions-test-8.gif" alt="Merge the pull request" style="max-width: 700px">

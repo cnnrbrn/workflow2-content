@@ -206,6 +206,8 @@ There are example answers in the <a href="https://github.com/NoroffFEU/lesson-ta
 
 Try the exercises before checking the solution.
 
-<!-- [Go to lesson 4](4) -->
+---
 
-<!-- --- -->
+[Go to lesson 3](3)
+
+---
