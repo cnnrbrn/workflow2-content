@@ -77,8 +77,6 @@ git pull origin main
 
 <img src="/images/actions-test-2.gif" alt="Pull origin" style="max-width: 800px">
 
-<!-- [Go to lesson 4](4) -->
-
 ---
 
 #### Step 3
@@ -108,6 +106,8 @@ Go to the Actions tab in Github to see the action first install the packages, th
 The test will fail.
 
 <img src="/images/actions-test-5.png" alt="Failed test" style="max-width: 800px">
+
+---
 
 #### Step 4
 
@@ -143,8 +143,12 @@ This time our test will pass.
 
 <img src="/images/actions-test-7.png" alt="Passed test" style="max-width: 800px">
 
+---
+
 #### Step 5
 
 The final thing to do is merge the pull request.
 
 <img src="/images/actions-test-8.gif" alt="Merge the pull request" style="max-width: 800px">
+
+---
