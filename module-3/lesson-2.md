@@ -183,8 +183,8 @@ input.onkeyup = debounce(logKey, 500, { leading: true, maxWait: 1000 });
 
 In the above code the `logKey` function's execution is delayed by 500 milliseonds.
 
-`leading: true` - execute the function at the beginning of the timeout
-`maxWait: 1000` - the maximum time function is delayed before it's called
+-   `leading: true` - execute the function at the beginning of the timeout
+-   `maxWait: 1000` - the maximum time function is delayed before it's called
 
 ---
 
