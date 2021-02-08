@@ -16,6 +16,8 @@ The video below looks at making a request (the equivalent of a REST API GET requ
 
 <a href="https://github.com/NoroffFEU/introduction-to-graphql" target="_blank">Code from the video</a>
 
+---
+
 ## Activity
 
 ### Read
