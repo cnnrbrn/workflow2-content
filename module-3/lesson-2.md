@@ -171,7 +171,9 @@ console.log(isEqual(product1, product2));
 
 Debounce can be used to delay the execution of a function.
 
-If, for example, you have code that responds to a `keyup` event, you might want to not execute the code on every event if it triggered frequently, especially if it is an expensive operation like an API.
+If, for example, you have code that responds to a `keyup` event, you might want to not execute the code on every event if it triggered frequently, especially if it is an expensive operation\* like an API call.
+
+> An expensive operation is code that when executed might take a long time to run or use lots of resources like memory
 
 ```js
 const input = document.querySelector("input");
