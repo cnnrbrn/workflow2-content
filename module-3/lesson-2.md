@@ -133,6 +133,8 @@ const orderedProducts = orderBy(products, ["price"], ["asc"]);
 console.log(orderedProducts);
 ```
 
+The first argument is the collection to sort, the second argument is an array of keys to sort on, and the third argument determines in which direction to sort.
+
 ---
 
 ### isEqual
