@@ -1,18 +1,22 @@
-<!-- # Lesson 4 - Introduction to Github Actions
+# Lesson 4 - Introduction to GraphQL
 
 ## Introduction
 
-Github actions are a way to execute tasks/actions/code when code is pushed to a repo. They can also be triggered on pull requests.
+<a href="https://graphql.org/" target="_blank">GraphQL</a> provides a different type of API to REST APIs.
 
-They are configured to run on certain branches of a repo, and different actions can be triggered on different branches.
+In a REST API you have multiple endpoints all returning different data or performing different requests.
 
-<iframe src="https://player.vimeo.com/video/506995445" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+With GraphQL, there is only one endpoint and you send this endpoint a query telling the API what you want to do and what you want returned.
 
-<a href="https://vimeo.com/506995445/37e0ac8969" target="_blank">Watch on Vimeo</a>
+The video below looks at making a request (the equivalent of a REST API GET request) using the Apollo client and the <a href="https://graphqlzero.almansi.me/" target="_blank">GraphQLZero</a> fake GraphQL API.
 
-<a href="https://github.com/NoroffFEU/introduction-to-github-actions" target="_blank">Code from the video</a>
+<iframe src="https://player.vimeo.com/video/509843576" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
----
+<a href="https://vimeo.com/509843576/1b63d4d0dc" target="_blank">Watch on Vimeo</a>
+
+<a href="https://github.com/NoroffFEU/introduction-to-graphql" target="_blank">Code from the video</a>
+
+<!-- ---
 
 [Go to the MA](ma)
 

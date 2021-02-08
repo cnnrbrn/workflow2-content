@@ -1,4 +1,4 @@
-# Lesson 3
+# Lesson 3 - Running tests with Github Actions
 
 ## Introduction
 
