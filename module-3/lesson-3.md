@@ -127,7 +127,7 @@ git commit -m "Fix App.js"
 git push origin test-fix
 ```
 
-To create the pull request and do the following:
+To create the pull request do the following:
 
 -   Change to the test-fix branch
 -   Select the `pull-request` link
