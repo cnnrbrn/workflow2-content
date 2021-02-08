@@ -16,8 +16,14 @@ The video below looks at making a request (the equivalent of a REST API GET requ
 
 <a href="https://github.com/NoroffFEU/introduction-to-graphql" target="_blank">Code from the video</a>
 
-<!-- ---
+## Activity
+
+### Read
+
+<a href="https://www.apollographql.com/blog/graphql-vs-rest-5d425123e34b/" target="_blank">GraphQL vs. REST</a>
+
+---
 
 [Go to the MA](ma)
 
---- -->
+---
