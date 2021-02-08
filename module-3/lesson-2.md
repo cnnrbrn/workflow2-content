@@ -1,4 +1,4 @@
-# Lesson 2 - Axios and Lodash
+# Lesson 2 - Axios, Lodash and date formatting libraries
 
 ### Running the code examples
 
@@ -64,9 +64,9 @@ Some features of Axios not found in fetch:
 -   wider browser support, including Internet Explorer
 -   ability to intercept HTTP requests
 
-<!-- ---
+---
 
-There are POST, PUT and DELETE examples in the answers branch of the lesson task. -->
+There are POST, PUT and DELETE examples in the answers branch of the lesson task.
 
 ---
 
@@ -95,7 +95,7 @@ import _ from "lodash";
 For a smaller bundle size import only the methods you are going to use:
 
 ```js
-import { orderBy, isEqual } from "lodash";
+import { orderBy, isEqual, debounce } from "lodash";
 ```
 
 You can find details of all Lodash methods in <a href="https://lodash.com/docs">the documentation</a>.
@@ -165,7 +165,44 @@ console.log(isEqual(product1, product2));
 // true
 ```
 
-<!-- ### debounce -->
+### debounce
+
+Debounce can be used to delay the execution of a function.
+
+If, for example, you have code that responds to a `keyup` event, you might want to not execute the code on every event if it triggered frequently, especially if it is an expensive operation like an API.
+
+```js
+const input = document.querySelector("input");
+
+function logKey(event) {
+	console.log(event.key);
+}
+
+input.onkeyup = debounce(logKey, 500, { leading: true, maxWait: 1000 });
+```
+
+In the above code the `logKey` function's execution is delayed by 500 milliseonds.
+
+`leading: true` - execute the function at the beginning of the timeout
+`maxWait: 1000` - the maximum time function is delayed before it's called
+
+---
+
+## Moment and date formatting
+
+<a href="https://momentjs.com/" target="_blank">moment.js</a> is a popular date formatting library, with Date formatting in JavaScript being limited
+
+New development of Moment has stopped though, and they (along with Google dev tools) recommend alternatives listed <a href="https://momentjs.com/docs/#/-project-status/recommendations/">here</a>.
+
+---
+
+## Lesson Task
+
+There are practice questions in the master branch of <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module3-lesson2" target="_blank">this repo</a>.
+
+There are example answers in the <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module3-lesson2/tree/answers" target="_blank">answer branch</a>.
+
+Try the exercises before checking the solution.
 
 <!-- [Go to lesson 4](4) -->
 

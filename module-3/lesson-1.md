@@ -153,6 +153,12 @@ npm unpublish -f
 
 ---
 
+## Lesson Task
+
+There is a practice question in the master branch of <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module3-lesson1" target="_blank">this repo</a>.
+
+---
+
 [Go to lesson 2](2)
 
 ---
