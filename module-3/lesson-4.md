@@ -18,6 +18,70 @@ The video below looks at making a request (the equivalent of a REST API GET requ
 
 ---
 
+## The result of making a REST or a GraphQL call is the same
+
+Whether you use a REST API or a GraphQL API, you are going to get a JSON response back.
+
+Take this REST GET request:
+
+```js
+async function makeRestCall() {
+	const restUrl = "https://jsonplaceholder.typicode.com/posts";
+	const response = await fetch(restUrl);
+	const json = await response.json();
+	console.log(json);
+}
+
+makeRestCall();
+```
+
+When the `json` variable is logged, you will see an array of 100 objects that you would loop through and do something with. All fields/properties that the developers of the API decided to return are returned.
+
+Now look at this GraphQL query:
+
+```js
+import ApolloClient, { gql } from "apollo-boost";
+
+async function makeGQLCall() {
+	const gqlUrl = "https://graphqlzero.almansi.me/api";
+
+	const client = new ApolloClient({
+		uri: gqlUrl,
+	});
+
+	const json = await client.query({
+		query: gql`
+			{
+				posts {
+					data {
+						id
+						title
+					}
+				}
+			}
+		`,
+	});
+	console.log(json.data.posts.data);
+}
+
+makeGQLCall();
+```
+
+It's a completely different way of making the API call, but the result is similar: 100 objects, though this time only the fields we requested are returned, ie. `id` and `title`.
+
+In both methods we are assigning the result of the API call (the JSON returned by the call) to a variable called `json`.
+
+Once assigned to that variable, we would manipulate it exactly the same way.
+
+```js
+for (let i = 0; i < json.length; i++) {
+	// log each object
+	console.log(json[i]);
+}
+```
+
+---
+
 ## Activity
 
 ### Read
