@@ -56,7 +56,11 @@ In the scripts section of `package.json`, set the `test` command to run `jest`:
 },
 ```
 
-With that all set up we can start to run tests.
+With that all set up we can start to run tests:
+
+```
+npm run test
+```
 
 Tests should be in files ending with a `.test.js` extentsion (or `.test.ts` if using TypeScript) or in a `__tests__` folder (double underscores).
 
