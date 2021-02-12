@@ -18,6 +18,52 @@ TDD won't be covered in this course.
 
 ## A first Jest test
 
+To add Jest to our project, we'll follow the docs found <a href="https://jestjs.io/docs/en/getting-started" target="_blank">here</a>.
+
+> Remember to only use NPM or Yarn on a project, not both. If you find a project has both a package-lock.json and a yarn.lock file, it means both package managers have been used. Delete both lock files.
+
+First we'll create a package.json file:
+
+```
+npm init -y
+```
+
+Then we'll install Jest as a dev dependency
+
+```
+npm install --save-dev jest
+```
+
+We're going to use ES6 modules (imports and exports) so we also need to install the following Babel packages:
+
+```
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+```
+
+Then we'll create a `babel.config.js` file with the following config:
+
+```js
+module.exports = {
+	presets: [["@babel/preset-env", { targets: { node: "current" } }]],
+};
+```
+
+In the scripts section of `package.json`, set the `test` command to run `jest`:
+
+```json
+ "scripts": {
+    "test": "jest"
+},
+```
+
+With that all set up we can start to run tests.
+
+Tests should be in files ending with a `.test.js` extentsion (or `.test.ts` if using TypeScript) or in a `__tests__` folder (double underscores).
+
+---
+
+Details of writing your firts test are in the video below.
+
 <iframe src="https://player.vimeo.com/video/506827581" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 <a href="https://vimeo.com/506827581/8202fd20a8" target="_blank">Watch on Vimeo</a>
