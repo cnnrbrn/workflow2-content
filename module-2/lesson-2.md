@@ -62,7 +62,7 @@ Tests should be in files ending with a `.test.js` extentsion (or `.test.ts` if u
 
 ---
 
-Details of writing your firts test are in the video below.
+Details of writing your first test are in the video below.
 
 <iframe src="https://player.vimeo.com/video/506827581" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
