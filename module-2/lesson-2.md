@@ -88,6 +88,36 @@ Consult the <a href="https://jestjs.io/docs/en/using-matchers" target="_blank">o
 
 ---
 
+## Using Jest with TypeScript
+
+To add TypeScript support, install the following Babel package:
+
+```
+npm install --save-dev @babel/preset-typescript
+```
+
+We'll also add the types for Jest:
+
+```
+npm install --save-dev @types/jest
+```
+
+Then add the preset to `babel.config.js`
+
+```js
+module.exports = {
+	presets: [
+		["@babel/preset-env", { targets: { node: "current" } }],
+		// this preset is the new addition
+		"@babel/preset-typescript",
+	],
+};
+```
+
+Now you can use Jest to run tests in TypeScript files.
+
+---
+
 [Go to lesson 3](3)
 
 ---
